@@ -34,6 +34,7 @@ class CreateFilmTable extends Migration
             ->onDelete('cascade');
 
             $table->timestamps();
+            $table->engine = 'MyISAM';
         });
     }
 
