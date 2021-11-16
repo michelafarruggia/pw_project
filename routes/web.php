@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/', [\App\Http\Controllers\FrontController::class, 'index']);
+
+Route::get('/index', [\App\Http\Controllers\FrontController::class, 'index'])->name('index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
