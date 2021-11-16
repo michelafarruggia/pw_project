@@ -33,6 +33,14 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     @yield('left_navbar')
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Categorie <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @foreach($genre as $genre_item)
+                            <li><a href="#">{{ $genre_item->nome_categoria }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
@@ -50,7 +58,7 @@
     @yield('breadcrumb')
 
     @yield('listaFilm')
-    
+
 </body>
 
 </html>

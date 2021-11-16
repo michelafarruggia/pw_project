@@ -7,18 +7,10 @@
 @section('left_navbar')
 <li class='active'><a href="{{ route('index') }}">Home</a></li>
 <li><a href="{{ route('index') }}">Novità</a></li>
-<li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Categorie <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <@foreach($genre as $genre_item)
-        <li><a href="#">{{ $genre_item->nome_categoria }}</a></li>
-        @endforeach
-    </ul>
-</li>
 @endsection
 
 @section('logsection')
-
+//
 @endsection
 
 @section('breadcrumb')

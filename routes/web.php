@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\DataLayer;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,9 @@ Route::get('/', [\App\Http\Controllers\FrontController::class, 'index']);
 Route::get('/index', [\App\Http\Controllers\FrontController::class, 'index'])->name('index');
 
 Route::get('/authenticated', function () {
-    return view('authenticated');
+    $dl = new DataLayer();
+    $genre = $dl->listGenre();
+    return view('authenticated', ['genre' => $genre]);
 })->middleware(['auth'])->name('authenticated');
 
 require __DIR__.'/auth.php';
