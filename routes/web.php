@@ -21,8 +21,8 @@ Route::get('/', [\App\Http\Controllers\FrontController::class, 'index']);
 
 Route::get('/index', [\App\Http\Controllers\FrontController::class, 'index'])->name('index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/authenticated', function () {
+    return view('authenticated');
+})->middleware(['auth'])->name('authenticated');
 
 require __DIR__.'/auth.php';
