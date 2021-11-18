@@ -28,4 +28,6 @@ Route::get('/authenticated', function () {
     return view('authenticated', ['genre' => $genre]);
 })->middleware(['auth'])->name('authenticated');
 
+Route::get('/film/{id}', [\App\Http\Controllers\MovieController::class, 'show'])->name('film');
+
 require __DIR__.'/auth.php';

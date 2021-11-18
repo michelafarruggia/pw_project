@@ -17,18 +17,14 @@
 @section('breadcrumb')
 <div class="container">
   <ul class="breadcrumb pull-right">
-    <li class="active">Home</li>
+    <li><a href="{{ route('index') }}">Home</a></li>
+    <li class="active">{{ $film->titolo }}</li>
   </ul>
 </div>
 @endsection
 
 @section('content')
 <div class="container">
-  <div class="row placeholders">
-    <section class="margine-bottom">
-      @foreach($film as $film_item)
-      <div class="col-xs-6 col-sm-4 col-md-3"><a href="{{ route('film', $film_item->id) }}"><img src="{{ url('/') }}/img/film/{{ $film_item->locandina }}" alt="{{ $film_item->titolo }}" class="img-thumbnail img-responsive crop"></a></div>
-      @endforeach
-  </div>
+<h1>{{  $film->titolo }} </h1>
 </div>
 @endsection

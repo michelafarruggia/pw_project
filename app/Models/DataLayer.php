@@ -20,4 +20,8 @@ class DataLayer extends Model
         $listFilms = Film::orderBy('titolo', 'asc')->get();
         return $listFilms;
     }
+
+    public function findFilmById($id) {
+        return Film::find($id);
+    }
 }

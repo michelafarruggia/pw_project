@@ -16,4 +16,8 @@ class FrontController extends Controller
         //return view('home', compact('genre'));
         return view('index', ['genre' => $genre, 'film' => $film]);
     }
+
+   
 }
+
+

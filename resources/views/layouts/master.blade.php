@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('index') }}">
                     <font color="#cfb7f6">Film & SerieTV</font>
                 </a>
             </div>
@@ -57,7 +57,7 @@
 
     @yield('breadcrumb')
 
-    @yield('listaFilm')
+    @yield('content')
 
 </body>
 
