@@ -2,7 +2,7 @@
 
 @section('titolo', 'MyMovies')
 
-@section('stile', 'style.css')
+@section('stile', 'film.css')
 
 @section('left_navbar')
 <li class='active'><a href="{{ route('index') }}">Home</a></li>
@@ -25,6 +25,19 @@
 
 @section('content')
 <div class="container">
-<h1>{{  $film->titolo }} </h1>
+<h1>{{  $film->titolo }} ({{$film->anno}}) </h1>
+
+
+<div style="float: left; margin-right: 10px">
+<img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive"/>
+</div>
+<p>
+  <br><br>
+  DURATA: {{ $film->durata }} minuti
+  CATEGORIA: 
+</p>
+{{  $film->trama }}
+
+
 </div>
 @endsection
