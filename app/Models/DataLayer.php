@@ -24,4 +24,12 @@ class DataLayer extends Model
     public function findFilmById($id) {
         return Film::find($id);
     }
+
+    public function findDirectorById($id) {
+        return Director::find($id);
+    }
+
+    public function findGenreById($id) {
+        return Genre::find($id);
+    }
 }

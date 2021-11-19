@@ -17,7 +17,7 @@ class CreateFilmTable extends Migration
             $table->increments('id');
             $table->string('titolo');
             $table->integer('anno');
-            $table->string('trama');
+            $table->text('trama');
             $table->text('locandina');
             $table->integer('categoria_id');
             $table->integer('durata')->unsigned();

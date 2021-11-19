@@ -25,19 +25,25 @@
 
 @section('content')
 <div class="container">
-<h1>{{  $film->titolo }} ({{$film->anno}}) </h1>
+  <h1>{{ $film->titolo }} ({{$film->anno}}) </h1>
 
 
-<div style="float: left; margin-right: 10px">
-<img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive"/>
+  <div style="float: left; margin-right: 10px">
+    <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
+  </div>
+  <p>
+    <br><br>
+    <b>REGISTA:</b> {{ $director->firstname }} {{ $director->lastname }}
+    <br><br>
+    <b>CATEGORIA:</b> {{ $genreItem->nome_categoria }}
+    <br><br>
+    <b>DURATA:</b> {{ $film->durata }} minuti
+    <br><br>
+    <b>SINOSSI:</b> {{ $film->trama }}
+  </p>
+  
 </div>
-<p>
-  <br><br>
-  DURATA: {{ $film->durata }} minuti
-  CATEGORIA: 
-</p>
-{{  $film->trama }}
 
 
-</div>
+
 @endsection

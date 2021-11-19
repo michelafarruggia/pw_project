@@ -19,6 +19,8 @@ class MovieController extends Controller
         $dl = new DataLayer();
         $genre = $dl->listGenre();
         $film = $dl->findFilmById($id);
-        return view('film', ['film' => $film, 'genre' => $genre] );
+        $director = $dl->findDirectorById($film->director_id);
+        $genreItem = $dl->findGenreById($film->categoria_id);
+        return view('film', ['film' => $film, 'genre' => $genre, 'director'=>$director, 'genreItem'=>$genreItem] );
     }
 }
