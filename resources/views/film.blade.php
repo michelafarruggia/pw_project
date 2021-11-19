@@ -5,7 +5,7 @@
 @section('stile', 'film.css')
 
 @section('left_navbar')
-<li class='active'><a href="{{ route('index') }}">Home</a></li>
+<li><a href="{{ route('index') }}">Home</a></li>
 <li><a href="{{ route('index') }}">Novità</a></li>
 @endsection
 

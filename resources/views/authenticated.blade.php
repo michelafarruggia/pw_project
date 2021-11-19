@@ -21,16 +21,11 @@
 </div>
 @endsection
 
-@section('listaFilm')
+@section('content')
 <div class="container">
     <div class="row placeholders">
         <section class="margine-bottom">
-            <div class="col-xs-6 col-sm-4 col-md-3"><img src="{{ url('/') }}/img/film/peaky_blinders.jpg" alt="Peaky Blinders" class="img-thumbnail img-responsive crop"></div>
-            <div class="col-xs-6 col-sm-4 col-md-3"><img src="{{ url('/') }}/img/film/tenet.jpg" alt="Tenet" class="img-thumbnail img-responsive crop"></div>
-            <div class="col-xs-6 col-sm-4 col-md-3"><img src="{{ url('/') }}/img/film/The-Conjuring.jpg" alt="The Conjuring" class="img-thumbnail img-responsive crop"></div>
-            <div class="col-xs-6 col-sm-4 col-md-3"><img src="{{ url('/') }}/img/film/titanic.jpg" alt="The Conjuring" class="img-thumbnail img-responsive crop"></div>
-            <div class="col-xs-6 col-sm-4 col-md-3"><img src="{{ url('/') }}/img/film/mr_robot.jpg" alt="mr" class="img-thumbnail img-responsive crop"></div>
-            <div class="col-xs-6 col-sm-4 col-md-3"><img src="{{ url('/') }}/img/film/demon_slayer.jpg" alt="ds" class="img-thumbnail img-responsive crop"></div>
+            //PAGINA DA AUTENTICATO
         </section>
     </div>
 </div>
