@@ -42,5 +42,16 @@ class DataLayer extends Model
         $listFilms = Film::where('anno','=', $annoCorrente)->get();
         return $listFilms;
     }
+
+    public function search($request){
+        $film = Film::where([
+            ['titolo', '!=', Null],
+            [function ($query) use ($request) {
+                 if (($term = $request->term)) {
+                     $query->orWhere('titolo', 'LIKE', '%' . $term . '%')->get();
+                }
+            }]
+        ]);
+    }
     
 }
