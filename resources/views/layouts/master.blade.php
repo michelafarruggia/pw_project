@@ -24,9 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('index') }}">
-                    <font color="#cfb7f6">Film & SerieTV</font>
-                </a>
+                @yield('navbar-brand')
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

@@ -4,9 +4,15 @@
 
 @section('stile', 'style.css')
 
+@section('navbar-brand')
+<a class="navbar-brand" href="{{ route('authenticated') }}">
+    <font color="#cfb7f6">Film & SerieTV</font>
+</a>
+@endsection
+
 @section('left_navbar')
-<li class='active'><a href="{{ route('index') }}">Home</a></li>
-<li><a href="{{ route('index') }}">Novità</a></li>
+<li class='active'><a href="{{ route('authenticated') }}">Home</a></li>
+<li><a href="{{ route('authenticated') }}">Novità</a></li>
 @endsection
 
 @section('logsection')
