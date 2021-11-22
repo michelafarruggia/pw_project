@@ -7,10 +7,11 @@ use App\Models\DataLayer;
 
 class GenreController extends Controller
 {
-    public function getFilmGenreId($id){
+    public function getFilmGenreId($id)
+    {
         $dl = new DataLayer();
         $genre = $dl->listGenre();
-        $filmGenreId = $dl-> findFilmsByGenreId($id);
+        $filmGenreId = $dl->findFilmsByGenreId($id);
         return view('genre', ['genre' => $genre, 'filmGenreId' => $filmGenreId]);
-  }
+    }
 }

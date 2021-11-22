@@ -37,5 +37,10 @@ class DataLayer extends Model
         $listFilms = Film::where('categoria_id','=', $id)->get();
         return $listFilms;
     }
+
+    public function getNewFilm($annoCorrente){
+        $listFilms = Film::where('anno','=', $annoCorrente)->get();
+        return $listFilms;
+    }
     
 }

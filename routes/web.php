@@ -32,4 +32,9 @@ Route::get('/film/{id}', [\App\Http\Controllers\MovieController::class, 'show'])
 
 Route::get('/categoria/{id}', [\App\Http\Controllers\GenreController::class, 'getFilmGenreId'])->name('categoria');
 
+Route::get('/novita/{annoCorrente}', [\App\Http\Controllers\NovitaController::class, 'getNewFilm'])->name('novita');
+
+
+
+
 require __DIR__.'/auth.php';

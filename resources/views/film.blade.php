@@ -6,7 +6,7 @@
 
 @section('left_navbar')
 <li><a href="{{ route('index') }}">Home</a></li>
-<li><a href="{{ route('index') }}">Novità</a></li>
+<li><a href="{{ route('novita', 2021) }}">Novità</a></li>
 @endsection
 
 @section('logsection')
