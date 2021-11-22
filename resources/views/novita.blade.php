@@ -17,7 +17,8 @@
 @section('breadcrumb')
 <div class="container">
   <ul class="breadcrumb pull-right">
-    <li class="active">Home</li>
+    <li><a href="{{ route('index') }}">Home</a></li>
+    <li class="active">Novita</li>
   </ul>
 </div>
 @endsection

@@ -5,7 +5,7 @@
 @section('stile', 'style.css')
 
 @section('left_navbar')
-<li class='active'><a href="{{ route('index') }}">Home</a></li>
+<li><a href="{{ route('index') }}">Home</a></li>
 <li><a href="{{ route('novita', 2021) }}">Novità</a></li>
 @endsection
 
@@ -17,7 +17,8 @@
 @section('breadcrumb')
 <div class="container">
   <ul class="breadcrumb pull-right">
-    <li class="active">Home</li>
+    <li><a href="{{ route('index') }}">Home</a></li>
+    <li class="active">{{ $categoria->nome_categoria }}</li>
   </ul>
 </div>
 @endsection
