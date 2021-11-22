@@ -37,7 +37,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Categorie <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @foreach($genre as $genre_item)
-                            <li><a href="#">{{ $genre_item->nome_categoria }}</a></li>
+                            <li><a href="{{ route('categoria', $genre_item->id) }}">{{ $genre_item->nome_categoria }}</a></li>
                             @endforeach
                         </ul>
                     </li>

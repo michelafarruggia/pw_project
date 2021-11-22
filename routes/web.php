@@ -30,4 +30,6 @@ Route::get('/authenticated', function () {
 
 Route::get('/film/{id}', [\App\Http\Controllers\MovieController::class, 'show'])->name('film');
 
+Route::get('/categoria/{id}', [\App\Http\Controllers\GenreController::class, 'getFilmGenreId'])->name('categoria');
+
 require __DIR__.'/auth.php';

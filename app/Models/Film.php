@@ -16,6 +16,13 @@ class Film extends Model
 
     public function director()
     {
-        return $this->belongsTo('Progetto\Director');
+        return $this->belongsTo('App\Models\Director');
     }
+
+    public function categoria()
+    {
+        return $this->belongsTo('App\Models\Genre');
+    }
+
+
 }

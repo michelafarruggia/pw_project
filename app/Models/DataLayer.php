@@ -32,4 +32,10 @@ class DataLayer extends Model
     public function findGenreById($id) {
         return Genre::find($id);
     }
+
+    public function findFilmsByGenreId($id){
+        $listFilms = Film::where('categoria_id','=', $id)->get();
+        return $listFilms;
+    }
+    
 }

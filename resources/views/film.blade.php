@@ -27,7 +27,6 @@
 <div class="container">
   <h1>{{ $film->titolo }} ({{$film->anno}}) </h1>
 
-
   <div style="float: left; margin-right: 10px">
     <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
   </div>
