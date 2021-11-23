@@ -34,7 +34,7 @@ Route::get('/categoria/{id}', [\App\Http\Controllers\GenreController::class, 'ge
 
 Route::get('/novita/{annoCorrente}', [\App\Http\Controllers\NovitaController::class, 'getNewFilm'])->name('novita');
 
-
+Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
 
 require __DIR__.'/auth.php';

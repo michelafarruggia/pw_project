@@ -21,37 +21,45 @@ class DataLayer extends Model
         return $listFilms;
     }
 
-    public function findFilmById($id) {
+    public function findFilmById($id)
+    {
         return Film::find($id);
     }
 
-    public function findDirectorById($id) {
+    public function findDirectorById($id)
+    {
         return Director::find($id);
     }
 
-    public function findGenreById($id) {
+    public function findGenreById($id)
+    {
         return Genre::find($id);
     }
 
-    public function findFilmsByGenreId($id){
-        $listFilms = Film::where('categoria_id','=', $id)->get();
+    public function findFilmsByGenreId($id)
+    {
+        $listFilms = Film::where('categoria_id', '=', $id)->get();
         return $listFilms;
     }
 
-    public function getNewFilm($annoCorrente){
-        $listFilms = Film::where('anno','=', $annoCorrente)->get();
+    public function getNewFilm($annoCorrente)
+    {
+        $listFilms = Film::where('anno', '=', $annoCorrente)->get();
         return $listFilms;
     }
 
-    public function search($request){
+    public function getFilmByTitle($request)
+    {
         $film = Film::where([
             ['titolo', '!=', Null],
-            [function ($query) use ($request) {
-                 if (($term = $request->term)) {
-                     $query->orWhere('titolo', 'LIKE', '%' . $term . '%')->get();
+            [function ($query) use ($request){
+                if (($term = $request->term)){
+                    $query->orWhere('titolo', 'LIKE', '%' .$term . '%')->get();
                 }
             }]
-        ]);
+        ])->orderBy('titolo', 'asc')->paginate(15);
+
+        return $film;
     }
-    
+
 }

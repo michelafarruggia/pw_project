@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataLayer;
+use Illuminate\Support\Facades\DB;
 
 
 class FrontController extends Controller
@@ -16,7 +17,7 @@ class FrontController extends Controller
         //return view('home', compact('genre'));
         return view('index', ['genre' => $genre, 'film' => $film]);
     }
-
+   
    
 }
 

@@ -40,12 +40,14 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Cerca...">
-                    </div>
-                    <button type="submit" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
+
+                <form class="navbar-form navbar-left" action="/search" method="GET" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Cerca..." aria-label="Search" name="term"
+                        id="term">
+                    <button class="btn btn-outline-success" type="submit"><span class="glyphicon glyphicon-search"></button>
                 </form>
+
+
                 <ul class="nav navbar-nav navbar-right">
                     @yield('logsection')
                 </ul>
