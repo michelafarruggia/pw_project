@@ -44,7 +44,7 @@
                 <form class="navbar-form navbar-left" action="/search" method="GET" role="search">
                     <input class="form-control me-2" type="search" placeholder="Cerca..." aria-label="Search" name="term"
                         id="term">
-                    <button class="btn btn-outline-success" type="submit"><span class="glyphicon glyphicon-search"></button>
+                    <button class="btn btn-outline-success hidden-xs" type="submit"><span class="glyphicon glyphicon-search"></button>
                 </form>
 
 
