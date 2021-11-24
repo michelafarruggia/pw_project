@@ -2,7 +2,7 @@
 
 @section('titolo', 'MyMovies')
 
-@section('stile', 'film.css')
+@section('stile', 'director.css')
 
 @section('navbar-brand')
 <a class="navbar-brand" href="{{ route('index') }}">
@@ -24,13 +24,14 @@
 <div class="container">
   <ul class="breadcrumb pull-right">
     <li><a href="{{ route('index') }}">Home</a></li>
-    <li class="active">{{ $director->firstname }}{{ $director->lastname }}</li>
+    <li class="active">{{ $director->firstname }}  {{ $director->lastname }}</li>
   </ul>
 </div>
 @endsection
 
 @section('content')
 <div class="container">
+  <div class="center-block">
   <h1>{{ $director->firstname }}  {{ $director->lastname }}</h1>
   <div style="float: left; margin-right: 10px">
     <img src="{{ url('/') }}/img/director/{{ $director->immagine }}" alt="{{ $director->firstname }}{{ $director->lastname }}" class="img-thumbnail img-responsive" />
@@ -39,9 +40,6 @@
     <br><br>
     {{ $director->descrizione }}
   </p>
-
 </div>
-
-
-
+</div>
 @endsection
