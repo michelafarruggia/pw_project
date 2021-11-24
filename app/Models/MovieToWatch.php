@@ -9,7 +9,7 @@ class MovieToWatch extends Model
 {
     use HasFactory;
 
-    protected $table = "movieToWatch";
+    protected $table = "movie_to_watch";
     public $timestamps = false;
 
     protected $fillable = ['id', 'titolo', 'anno', 'trama', 'locandina', 'categoria_id', 'durata', 'director_id'];

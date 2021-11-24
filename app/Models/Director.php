@@ -12,7 +12,7 @@ class Director extends Model
     protected $table = 'director';
     public $timestamps = false;
     
-    protected $fillable = ['id', 'firstname', 'lastname'];
+    protected $fillable = ['id', 'firstname', 'lastname', 'immagine', 'descrizione'];
         
     public function film() {
         // use the 'books' property: $author->books (returns an array)

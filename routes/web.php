@@ -36,5 +36,6 @@ Route::get('/novita/{annoCorrente}', [\App\Http\Controllers\NovitaController::cl
 
 Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
+Route::get('/director/{id}', [\App\Http\Controllers\DirectorController::class, 'index'])->name('director');
 
 require __DIR__.'/auth.php';
