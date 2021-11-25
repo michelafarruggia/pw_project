@@ -15,11 +15,6 @@
 <li class='active'><a href="{{ route('novita', 2021) }}">Novità</a></li>
 @endsection
 
-@section('logsection')
-<li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
-<li><a href="{{ route('register') }}"><span aria-hidden="true"></span> Register</a></li>
-@endsection
-
 @section('breadcrumb')
 <div class="container">
   <ul class="breadcrumb pull-right">

@@ -28,6 +28,10 @@ body {
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   }
+
+  .center-text{
+    text-align: center;
+  }
   
   .breadcrumb {
     padding: 8px 15px;
@@ -73,23 +77,24 @@ body {
   }
 
   
-a:link {
-  color: rgb(242, 247, 242);
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #f5f4f7;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #cfb7f6;
-  background-color: transparent;
-  text-decoration: underline;
-}
+  a:link {
+    color: rgb(242, 247, 242);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  
+  a:visited {
+    color: #f5f4f7;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #2b2a2a;
+    background-color: transparent;
+    text-decoration: underline;
+  }
 
   
   
