@@ -27,8 +27,9 @@
 @section('content')
 <div class="container">
   <h1>{{ $film->titolo }} ({{$film->anno}})</h1>
-  <form action="/insertIntoWatchlist" method="GET" role="search">
-    <button class="btn btn-outline-success" type="submit">Aggiungi alla WatchList</button>
+  <form action="/watchlist" method="POST" role="watchlist">
+    <button class="btn btn-outline-success" type="submit"><span class="glyphicon glyphicon-bookmark"></span></button>
+   
   </form>
   <div style="float: left; margin-right: 10px">
     <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
