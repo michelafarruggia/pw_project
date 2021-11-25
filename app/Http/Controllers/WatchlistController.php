@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DataLayer;
 
-class FrontController extends Controller
+class WatchlistController extends Controller
 {
     public function index()
     {
@@ -13,10 +13,6 @@ class FrontController extends Controller
         $genre = $dl->listGenre();
         $film = $dl->listFilms();
         //return view('home', compact('genre'));
-        return view('index', ['genre' => $genre, 'film' => $film]);
+        return view('watchlist', ['genre' => $genre, 'film' => $film]);
     }
-   
-   
 }
-
-

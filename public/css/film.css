@@ -58,7 +58,7 @@ body {
   
   .dropdown-menu > li > a:hover,
   .dropdown-menu > li > a:focus {
-    color: #262626;
+    color: #000000;
     text-decoration: none;
     background-color: #d9c6f8;
   }
@@ -82,8 +82,7 @@ body {
     background-color: transparent;
     text-decoration: none;
   }
-  
-  
+    
   a:visited {
     color: #f5f4f7;
     background-color: transparent;

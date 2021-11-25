@@ -22,12 +22,12 @@ Route::get('/', [\App\Http\Controllers\FrontController::class, 'index']);
 
 Route::get('/index', [\App\Http\Controllers\FrontController::class, 'index'])->name('index');
 
-Route::get('/index', function () {
+Route::get('/authenticated', function () {
     $dl = new DataLayer();
     $genre = $dl->listGenre();
     $film = $dl->listFilms();
     return view('index', ['genre' => $genre, 'film' => $film]);
-})->middleware(['auth'])->name('index');
+})->middleware(['auth'])->name('authenticated');
 
 Route::get('/film/{id}', [\App\Http\Controllers\MovieController::class, 'show'])->name('film');
 
@@ -38,5 +38,7 @@ Route::get('/novita/{annoCorrente}', [\App\Http\Controllers\NovitaController::cl
 Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
 Route::get('/director/{id}', [\App\Http\Controllers\DirectorController::class, 'index'])->name('director');
+
+Route::get('/watchlist', [\App\Http\Controllers\WatchlistController::class, 'index'])->name('watchlist');
 
 require __DIR__.'/auth.php';

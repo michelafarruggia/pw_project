@@ -12,14 +12,14 @@
 
 @section('left_navbar')
 <li><a href="{{ route('index') }}">Home</a></li>
-<li class='active'><a href="{{ route('novita', 2021) }}">Novità</a></li>
+<li class='active'><a href="{{ route('novita', date('Y')) }}">Novità ({{ date('Y') }})</a></li>
 @endsection
 
 @section('breadcrumb')
 <div class="container">
   <ul class="breadcrumb pull-right">
     <li><a href="{{ route('index') }}">Home</a></li>
-    <li class="active">Novita</li>
+    <li class="active">Novita ({{ date('Y') }})</li>
   </ul>
 </div>
 @endsection

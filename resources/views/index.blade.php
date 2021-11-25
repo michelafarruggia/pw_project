@@ -12,7 +12,7 @@
 
 @section('left_navbar')
 <li class='active'><a href="{{ route('index') }}">Home</a></li>
-<li><a href="{{ route('novita', 2021) }}">Novità</a></li>
+<li><a href="{{ route('novita', date('Y')) }}">Novità ({{ date('Y') }})</a></li>
 @endsection
 
 @section('breadcrumb')

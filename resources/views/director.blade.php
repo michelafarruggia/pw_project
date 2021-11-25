@@ -12,7 +12,7 @@
 
 @section('left_navbar')
 <li><a href="{{ route('index') }}">Home</a></li>
-<li><a href="{{ route('novita', 2021) }}">Novità</a></li>
+<li><a href="{{ route('novita', date('Y')) }}">Novità ({{ date('Y') }})</a></li>
 @endsection
 
 @section('breadcrumb')
@@ -29,7 +29,7 @@
   <div class="center-block">
   <h1>{{ $director->firstname }}  {{ $director->lastname }}</h1>
   <div style="float: left; margin-right: 10px">
-    <img src="{{ url('/') }}/img/director/{{ $director->immagine }}" alt="{{ $director->firstname }}{{ $director->lastname }}" class="img-thumbnail img-responsive" />
+  <img src="{{ url('/') }}/img/director/{{ $director->immagine }}" alt="{{ $director->firstname }}{{ $director->lastname }}" class="img-thumbnail img-responsive" />
   </div>
   <p>
     <br><br>
