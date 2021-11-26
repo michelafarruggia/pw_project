@@ -6,7 +6,7 @@
 
 @section('navbar-brand')
 <a class="navbar-brand" href="{{ route('index') }}">
-  <font color="#cfb7f6">Film & SerieTV</font>
+  <font color="#cfb7f6">Film & TV</font>
 </a>
 @endsection
 
@@ -28,7 +28,7 @@
 <div class="container">
   <h1>{{ $film->titolo }} ({{$film->anno}})</h1>
   <form action="/watchlist" method="POST" role="watchlist">
-    <button class="btn btn-outline-success" type="submit"><span class="glyphicon glyphicon-bookmark"></span></button>
+    <button class="btn btn-outline-success colored" type="submit"><span class="glyphicon glyphicon-bookmark"></span></button>
    
   </form>
   <div style="float: left; margin-right: 10px">

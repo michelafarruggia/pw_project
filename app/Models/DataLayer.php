@@ -62,4 +62,10 @@ class DataLayer extends Model
         return $film;
     }
 
+    public function addToWatchlist(Film $film)
+    {
+        MovieToWatch::add($film->id, $film->titolo, );
+        return redirect('/watchlist');
+    }
+
 }
