@@ -39,9 +39,8 @@
     <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
       @csrf
       @method('POST')
-      <button id="button" style="margin-top:10px" class="btn btn-outline-success colored" type="submit" value="$film" ><span class="glyphicon glyphicon-bookmark" style="color:#b185db"></span></button>
+      <button id="button" style="margin-top:10px" class="btn btn-outline-success colored" type="submit" value="toWatch"><span class="glyphicon glyphicon-bookmark" style="color:#b185db"></span></button>
     </form>
-    
     @endif
   </div>
 

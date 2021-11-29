@@ -22,7 +22,9 @@ class WatchlistController extends Controller
     {
         $filmToWatch = MovieToWatch::where('id', '=', $id) ->where( 'user_id', Auth::id())->first();
         if (MovieToWatch::where('id', '=', $id)->where( 'user_id', Auth::id())->exists()) {
-            return redirect()->back()->with('message', '"'.$filmToWatch->titolo.'" è già presente nella tua watchlist!');
+            $dl = new DataLayer();
+            $dl->removeFromWatchlist($id);
+            return redirect()->back()->with('message', '"'.$filmToWatch->titolo.'" è stato rimosso dalla watchlist!');
          } else{
         $film = Film::where('id', '=', $id)->first();
         $dl = new DataLayer();
@@ -30,5 +32,6 @@ class WatchlistController extends Controller
         return redirect()->back()->with('message', '"'.$film->titolo.'" è stato aggiunto alla watchlist');
         }
     }
+
 
 }
