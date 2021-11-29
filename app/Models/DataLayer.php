@@ -82,7 +82,7 @@ class DataLayer extends Model
 
     public function removeFromWatchlist($id)
     {
-        MovieToWatch::where('id', '=', $id)->where( 'user_id', Auth::id())->delete();
+        MovieToWatch::where('id', '=', $id)->where('user_id', Auth::id())->delete();
     }
 
     public function filmToWatch()
