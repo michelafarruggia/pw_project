@@ -44,7 +44,8 @@
     @endif
   </div>
 
-  <div style="float: left; margin-right: 10px">
+  <div class="container">
+  <div style="float: left; margin-right: 0px">
     <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
   </div>
 
@@ -59,6 +60,8 @@
     <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
     <br><br>
   </div>
+  </div>
+  
 
 </div>
 
