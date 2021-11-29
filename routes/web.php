@@ -41,4 +41,6 @@ Route::get('/director/{id}', [\App\Http\Controllers\DirectorController::class, '
 
 Route::get('/watchlist', [\App\Http\Controllers\WatchlistController::class, 'index'])->name('watchlist');
 
+Route::post('/add/watchlist/{id}', [\App\Http\Controllers\WatchlistController::class, 'addToWatchlist'])->name('watchlistroute');
+
 require __DIR__.'/auth.php';

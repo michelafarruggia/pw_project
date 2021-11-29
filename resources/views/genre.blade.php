@@ -6,7 +6,7 @@
 
 @section('navbar-brand')
 <a class="navbar-brand" href="{{ route('index') }}">
-  <font color="#cfb7f6">Film & TV</font>
+  <font color="#cfb7f6">Tutto Film</font>
 </a>
 @endsection
 

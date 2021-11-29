@@ -6,7 +6,7 @@
 
 @section('navbar-brand')
 <a class="navbar-brand" href="{{ route('index') }}">
-  <font color="#cfb7f6">Film & TV</font>
+  <font color="#cfb7f6">Tutto Film</font>
 </a>
 @endsection
 
@@ -27,11 +27,18 @@
 @section('content')
 <div class="container">
 <div class="container">
+@if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
   <div style="float: left; margin-right: 20px">
   <font style="font-size: 250%">{{ $film->titolo }} ({{$film->anno}})</font>
   </div>
-      <form action="/watchlist" method="POST" role="watchlist">
-        <button style="margin-top:10px" class="btn btn-outline-success colored" type="submit"><span class="glyphicon glyphicon-bookmark"></span></button>
+      <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
+        @csrf 
+        @method('POST')
+        <button style="margin-top:10px" class="btn btn-outline-success colored" type="submit" value="$film"><span class="glyphicon glyphicon-bookmark"></span></button>
       </form>
 </div>
 

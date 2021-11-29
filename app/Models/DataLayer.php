@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class DataLayer extends Model
 {
@@ -62,10 +63,27 @@ class DataLayer extends Model
         return $film;
     }
 
-    public function addToWatchlist(Film $film)
+    public function addToWatchlist($id)
     {
-        MovieToWatch::add($film->id, $film->titolo, );
-        return redirect('/watchlist');
+        $film=$this->findFilmById($id);
+        // dd($film);
+        MovieToWatch::insert([
+            'id'=>$film->id, 
+            'titolo'=>$film->titolo, 
+            'anno'=>$film->anno, 
+            'trama'=>$film->trama, 
+            'locandina'=>$film->locandina,
+            'categoria_id'=>$film->categoria_id, 
+            'durata'=>$film->durata, 
+            'director_id'=>$film->director_id, 
+            'user_id'=>Auth::id()
+        ]);
+    }
+
+    public function filmToWatch()
+    {
+        $listFilms = MovieToWatch::orderBy('titolo', 'asc')->where('user_id', Auth::id())->get();
+        return $listFilms;
     }
 
 }

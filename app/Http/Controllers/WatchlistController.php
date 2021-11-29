@@ -11,8 +11,15 @@ class WatchlistController extends Controller
     {
         $dl = new DataLayer();
         $genre = $dl->listGenre();
-        $film = $dl->listFilms();
-        //return view('home', compact('genre'));
+        $film = $dl->filmToWatch();
         return view('watchlist', ['genre' => $genre, 'film' => $film]);
     }
+
+    public function addToWatchlist($id)
+    {
+        $dl = new DataLayer();
+        $dl->addToWatchlist($id);
+        return redirect()->back()->with('message', 'Film aggiunto alla watchlist');
+    }
+
 }
