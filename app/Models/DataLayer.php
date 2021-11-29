@@ -53,9 +53,9 @@ class DataLayer extends Model
     {
         $film = Film::where([
             ['titolo', '!=', Null],
-            [function ($query) use ($request){
-                if (($term = $request->term)){
-                    $query->orWhere('titolo', 'LIKE', '%' .$term . '%')->get();
+            [function ($query) use ($request) {
+                if (($term = $request->term)) {
+                    $query->orWhere('titolo', 'LIKE', '%' . $term . '%')->get();
                 }
             }]
         ])->orderBy('titolo', 'asc')->paginate(15);
@@ -65,18 +65,18 @@ class DataLayer extends Model
 
     public function addToWatchlist($id)
     {
-        $film=$this->findFilmById($id);
-        // dd($film);
+        $film = $this->findFilmById($id);
+
         MovieToWatch::insert([
-            'id'=>$film->id, 
-            'titolo'=>$film->titolo, 
-            'anno'=>$film->anno, 
-            'trama'=>$film->trama, 
-            'locandina'=>$film->locandina,
-            'categoria_id'=>$film->categoria_id, 
-            'durata'=>$film->durata, 
-            'director_id'=>$film->director_id, 
-            'user_id'=>Auth::id()
+            'id' => $film->id,
+            'titolo' => $film->titolo,
+            'anno' => $film->anno,
+            'trama' => $film->trama,
+            'locandina' => $film->locandina,
+            'categoria_id' => $film->categoria_id,
+            'durata' => $film->durata,
+            'director_id' => $film->director_id,
+            'user_id' => Auth::id()
         ]);
     }
 
@@ -85,5 +85,4 @@ class DataLayer extends Model
         $listFilms = MovieToWatch::orderBy('titolo', 'asc')->where('user_id', Auth::id())->get();
         return $listFilms;
     }
-
 }

@@ -23,4 +23,5 @@ class MovieController extends Controller
         $genreItem = $dl->findGenreById($film->categoria_id);
         return view('film', ['film' => $film, 'genre' => $genre, 'director'=>$director, 'genreItem'=>$genreItem] );
     }
+
 }

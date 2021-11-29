@@ -26,40 +26,43 @@
 
 @section('content')
 <div class="container">
-<div class="container">
-@if (session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
+  <div class="container">
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+      {{ session()->get('message') }}
+    </div>
     @endif
-  <div style="float: left; margin-right: 20px">
-  <font style="font-size: 250%">{{ $film->titolo }} ({{$film->anno}})</font>
+    <div style="float: left; margin-right: 20px">
+      <font style="font-size: 250%">{{ $film->titolo }} ({{$film->anno}})</font>
+    </div>
+    @if(Auth::check())
+    <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
+      @csrf
+      @method('POST')
+      <button id="button" style="margin-top:10px" class="btn btn-outline-success colored" type="submit" value="$film" ><span class="glyphicon glyphicon-bookmark" style="color:#b185db"></span></button>
+    </form>
+    
+    @endif
   </div>
-      <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
-        @csrf 
-        @method('POST')
-        <button style="margin-top:10px" class="btn btn-outline-success colored" type="submit" value="$film"><span class="glyphicon glyphicon-bookmark"></span></button>
-      </form>
+
+  <div style="float: left; margin-right: 10px">
+    <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
+  </div>
+
+  <div class="container">
+    <br><br>
+    <font color="#cfb7f6"><b>REGISTA:</b></font> <a href="{{ route('director', $film->director_id) }}"> {{ $director->firstname }} {{ $director->lastname }}</a>
+    <br><br>
+    <font color="#cfb7f6"><b>CATEGORIA:</b></font> {{ $genreItem->nome_categoria }}
+    <br><br>
+    <font color="#cfb7f6"><b>DURATA:</b></font> {{ $film->durata }} minuti
+    <br><br>
+    <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
+    <br><br>
+  </div>
+
 </div>
 
-    <div style="float: left; margin-right: 10px">
-      <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
-    </div>
-
-    <div class="container">
-      <br><br>
-      <font color="#cfb7f6"><b>REGISTA:</b></font> <a href="{{ route('director', $film->director_id) }}"> {{ $director->firstname }} {{ $director->lastname }}</a>
-      <br><br>
-      <font color="#cfb7f6"><b>CATEGORIA:</b></font> {{ $genreItem->nome_categoria }}
-      <br><br>
-      <font color="#cfb7f6"><b>DURATA:</b></font> {{ $film->durata }} minuti
-      <br><br>
-      <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
-      <br><br>
-    </div>
-
-  </div>
 
 
-
-  @endsection
+@endsection
