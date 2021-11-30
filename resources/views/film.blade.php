@@ -39,33 +39,34 @@
     <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
       @csrf
       @method('POST')
-      <button style="margin-top:10px" class="btn btn-outline-success colored" type="submit" value="toWatch"><span class="glyphicon glyphicon-bookmark" style="color:#b185db"></span></button>
+      <button style="margin-top:10px" class="btn btn-primary" type="submit" value="toWatch"><span class="glyphicon glyphicon-bookmark" style="color:#b185db"></span></button>
     </form>
     @endif
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demoModal">Trailer</button>
+  </div>
+</div>
+
+@include('modal.trailer')
+
+<div class="container">
+  <div style="float: left; margin-right: 0px">
+    <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
   </div>
 
   <div class="container">
-    <div style="float: left; margin-right: 0px">
-      <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
-    </div>
-
-    <div class="container">
-      <p>
-        <br><br>
-        <font color="#cfb7f6"><b>REGISTA:</b></font> <a href="{{ route('director', $film->director_id) }}"> {{ $director->firstname }} {{ $director->lastname }}</a>
-        <br><br>
-        <font color="#cfb7f6"><b>CATEGORIA:</b></font> {{ $genreItem->nome_categoria }}
-        <br><br>
-        <font color="#cfb7f6"><b>DURATA:</b></font> {{ $film->durata }} minuti
-        <br><br>
-        <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
-        <br><br>
-      </p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/moNv1SlFneI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <p>
+      <br><br>
+      <font color="#cfb7f6"><b>REGISTA:</b></font> <a href="{{ route('director', $film->director_id) }}"> {{ $director->firstname }} {{ $director->lastname }}</a>
+      <br><br>
+      <font color="#cfb7f6"><b>CATEGORIA:</b></font> {{ $genreItem->nome_categoria }}
+      <br><br>
+      <font color="#cfb7f6"><b>DURATA:</b></font> {{ $film->durata }} minuti
+      <br><br>
+      <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
+      <br><br>
+    </p>
   </div>
-
-
+</div>
 </div>
 
 
