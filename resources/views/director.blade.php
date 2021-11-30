@@ -32,7 +32,7 @@
   <img src="{{ url('/') }}/img/director/{{ $director->immagine }}" alt="{{ $director->firstname }}{{ $director->lastname }}" class="img-thumbnail img-responsive" />
   </div>
   <p>
-    <br><br>
+    <h2>Biografia</h2>
     {{ $director->descrizione }}
   </p>
 </div>

@@ -76,6 +76,7 @@ class DataLayer extends Model
             'categoria_id' => $film->categoria_id,
             'durata' => $film->durata,
             'director_id' => $film->director_id,
+            'link' => $film->link,
             'user_id' => Auth::id()
         ]);
     }

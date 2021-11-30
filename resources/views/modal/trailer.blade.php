@@ -6,7 +6,7 @@
         <h4 class="modal-title">{{ $film->titolo }}</h4>
       </div>
       <div class="modal-body">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/moNv1SlFneI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="{{ $film->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
