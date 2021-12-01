@@ -49,14 +49,37 @@
     <p>
       <br><br>
     <div class="form-inline">
-    <div class="form-group">
-      <button type="button" title="Guarda il trailer" class="btn btn-primary" data-toggle="modal" data-target="#demoModal"><span class="glyphicon glyphicon-facetime-video"></button>
+      <div class="form-group">
+        <button type="button" title="Guarda il trailer" class="btn btn-primary" data-toggle="modal" data-target="#demoModal"><span class="glyphicon glyphicon-facetime-video"></button>
+        <script>
+          $(document).ready(function() {
+            /* Get iframe src attribute value i.e. YouTube video url
+            and store it in a variable */
+            var url = $("#cartoonVideo").attr('src');
+
+            /* Remove iframe src attribute on page load to
+            prevent autoplay in background */
+            $("#cartoonVideo").attr('src', '');
+
+            /* Assign the initially stored url back to the iframe src
+            attribute when modal is displayed */
+            $("#demoModal").on('shown.bs.modal', function() {
+              $("#cartoonVideo").attr('src', url);
+            });
+
+            /* Assign empty url value to the iframe src attribute when
+            modal hide, which stop the video playing */
+            $("#demoModal").on('hide.bs.modal', function() {
+              $("#cartoonVideo").attr('src', '');
+            });
+          });
+        </script>
       </div>
       <div class="form-group">
         <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
           @csrf
           @method('POST')
-          <button class="btn btn-primary" title="Aggiugni alla watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
+          <button class="btn btn-primary" title="Aggiungi/rimuovi dalla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
         </form>
       </div>
       <div class="form-group">

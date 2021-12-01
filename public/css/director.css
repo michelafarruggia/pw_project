@@ -75,6 +75,28 @@ body {
     width:250px;
     height:auto;
   }
+
+  a:link {
+    color: rgb(242, 247, 242);
+    background-color: transparent;
+    text-decoration: none;
+  }
+    
+  a:visited {
+    color: #f5f4f7;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #2b2a2a;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .center-text{
+    text-align: center;
+  }
   
   
 
