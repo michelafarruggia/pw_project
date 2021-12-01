@@ -18,18 +18,18 @@ class WatchlistController extends Controller
         return view('watchlist', ['genre' => $genre, 'film' => $film]);
     }
 
-    public function addToWatchlist($id)
+    public function addToWatchlist($film_id)
     {
         if(Auth::check()){
-        $filmToWatch = MovieToWatch::where('id', '=', $id)->where('user_id', Auth::id())->first();
-        if (MovieToWatch::where('id', '=', $id)->where('user_id', Auth::id())->exists()) {
+        $film = Film::where('id', '=', $film_id)->first();
+        if (MovieToWatch::where('film_id', '=', $film_id)->where('user_id', Auth::id())->exists()) {
             $dl = new DataLayer();
-            $dl->removeFromWatchlist($id);
-            return redirect()->back()->with('message', '"' . $filmToWatch->titolo . '" è stato rimosso dalla watchlist!');
+            $dl->removeFromWatchlist($film_id);
+            return redirect()->back()->with('message', '"' . $film->titolo . '" è stato rimosso dalla watchlist!');
         } else {
-            $film = Film::where('id', '=', $id)->first();
+            $film = Film::where('id', '=', $film_id)->first();
             $dl = new DataLayer();
-            $dl->addToWatchlist($id);
+            $dl->addToWatchlist($film_id);
             return redirect()->back()->with('message', '"' . $film->titolo . '" è stato aggiunto alla watchlist');
         }}else{
             return redirect()->back()->with('message', 'Per aggiungere un film alla watchlist effettuare il login!');

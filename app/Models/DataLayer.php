@@ -63,32 +63,26 @@ class DataLayer extends Model
         return $film;
     }
 
-    public function addToWatchlist($id)
+    public function addToWatchlist($film_id)
     {
-        $film = $this->findFilmById($id);
-
         MovieToWatch::insert([
-            'id' => $film->id,
-            'titolo' => $film->titolo,
-            'anno' => $film->anno,
-            'trama' => $film->trama,
-            'locandina' => $film->locandina,
-            'categoria_id' => $film->categoria_id,
-            'durata' => $film->durata,
-            'director_id' => $film->director_id,
-            'link' => $film->link,
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'film_id' => $film_id
         ]);
     }
 
-    public function removeFromWatchlist($id)
+    public function removeFromWatchlist($film_id)
     {
-        MovieToWatch::where('id', '=', $id)->where('user_id', Auth::id())->delete();
+        MovieToWatch::where('film_id', '=', $film_id)->where('user_id', Auth::id())->delete();
     }
 
     public function filmToWatch()
     {
-        $listFilms = MovieToWatch::orderBy('titolo', 'asc')->where('user_id', Auth::id())->get();
-        return $listFilms;
+        $listIdFilms = MovieToWatch::where('user_id', Auth::id())->select(['film_id'])->get();
+        foreach($listIdFilms as $film_id_item)
+        {
+            $film_el=$this->findFilmById($film_id_item);
+        }
+        return $film_el;
     }
 }
