@@ -20,12 +20,17 @@
     <div class="row placeholders">
         <section class="margine-bottom">
             <h1>La tua watchlist:</h1>
+            <br>
             <div class="container">
                 <div class="row placeholders">
                     <section class="margine-bottom">
+                        @if(!empty($film))
                         @foreach($film as $film_item)
                         <div class="col-xs-6 col-sm-4 col-md-3"><a href="{{ route('film', $film_item->id) }}"><img src="{{ url('/') }}/img/film/{{ $film_item->locandina }}" alt="{{ $film_item->titolo }}" class="img-thumbnail img-responsive"></a></div>
                         @endforeach
+                        @else
+                        <div class="alert alert-success" role="alert">La tua watchlist è vuota</div>
+                        @endif
                 </div>
             </div>
         </section>

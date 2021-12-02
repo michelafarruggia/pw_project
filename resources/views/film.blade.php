@@ -37,9 +37,6 @@
   </div>
 </div>
 
-
-@include('modal.trailer')
-
 <div class="container">
   <div style="float: left; margin-right: 0px">
     <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
@@ -51,6 +48,7 @@
     <div class="form-inline">
       <div class="form-group">
         <button type="button" title="Guarda il trailer" class="btn btn-primary" data-toggle="modal" data-target="#demoModal"><span class="glyphicon glyphicon-facetime-video"></button>
+        @include('modal.trailer')
         <script>
           $(document).ready(function() {
             /* Get iframe src attribute value i.e. YouTube video url
@@ -83,32 +81,29 @@
         </form>
       </div>
       <div class="form-group">
-        <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
+        <form action="{{ route('addReview', $film->id) }}" method="POST">
           @csrf
           @method('POST')
-          <button class="btn btn-primary" type="submit button" title="Mi piace" value="toWatch"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-        </form>
-      </div>
-      <div class="form-group">
-        <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
-          @csrf
-          @method('POST')
-          <button class="btn btn-primary" type="submit button" title="Non mi piace" value="toWatch"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-        </form>
+          <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
+          @include('modal.review')
       </div>
     </div>
-    <br><br>
-    <font color="#cfb7f6"><b>REGISTA:</b></font> <a href="{{ route('director', $film->director_id) }}"> {{ $director->firstname }} {{ $director->lastname }}</a>
-    <br><br>
-    <font color="#cfb7f6"><b>CATEGORIA:</b></font> {{ $genreItem->nome_categoria }}
-    <br><br>
-    <font color="#cfb7f6"><b>DURATA:</b></font> {{ $film->durata }} minuti
-    <br><br>
-    <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
-    <br><br>
-    </p>
-
   </div>
+  <br><br>
+  <font color="#cfb7f6"><b>REGISTA:</b></font> <a href="{{ route('director', $film->director_id) }}"> {{ $director->firstname }} {{ $director->lastname }}</a>
+  <br><br>
+  <font color="#cfb7f6"><b>CATEGORIA:</b></font> {{ $genreItem->nome_categoria }}
+  <br><br>
+  <font color="#cfb7f6"><b>DURATA:</b></font> {{ $film->durata }} minuti
+  <br><br>
+  <font color="#cfb7f6"><b>SINOSSI:</b></font> {{ $film->trama }}
+  <br><br>
+  </p>
+</div>
+
+<div class="container">
+  <h3>Recensioni degli utenti: </h3>
+</div>
 </div>
 </div>
 

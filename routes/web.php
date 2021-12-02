@@ -43,4 +43,6 @@ Route::get('/watchlist', [\App\Http\Controllers\WatchlistController::class, 'ind
 
 Route::post('/add/watchlist/{id}', [\App\Http\Controllers\WatchlistController::class, 'addToWatchlist'])->name('watchlistroute');
 
+Route::post('/add/review/{id}', [\App\Http\Controllers\ReviewController::class, 'addReview'])->name('addReview');
+
 require __DIR__.'/auth.php';
