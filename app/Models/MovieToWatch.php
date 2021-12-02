@@ -12,7 +12,7 @@ class MovieToWatch extends Model
     protected $table = "movie_to_watch";
     public $timestamps = false;
 
-    protected $fillable = ['id', 'titolo', 'anno', 'trama', 'locandina', 'categoria_id', 'durata', 'director_id'];
+    protected $fillable = ['id', 'user_id', 'film_id'];
 
     public function director()
     {

@@ -78,11 +78,14 @@ class DataLayer extends Model
 
     public function filmToWatch()
     {
-        $listIdFilms = MovieToWatch::where('user_id', Auth::id())->select(['film_id'])->get();
+        $listIdFilms = MovieToWatch::all()->where('user_id', Auth::id())->pluck(['film_id']);
+ 
+        $films=array();
         foreach($listIdFilms as $film_id_item)
         {
             $film_el=$this->findFilmById($film_id_item);
+            array_push($films, $film_el);
         }
-        return $film_el;
+        return $films;
     }
 }
