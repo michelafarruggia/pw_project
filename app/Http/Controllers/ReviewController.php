@@ -15,14 +15,13 @@ class ReviewController extends Controller
         if(Auth::check()){
         $film = Film::where('id', '=', $film_id)->first();
         if (Review::where('film_id', '=', $film_id)->where('user_id', Auth::id())->exists()) {
-            return redirect()->back()->with('message', '"' . $film->titolo . '" è stato rimosso dalla watchlist!');
+            return redirect()->back()->with('message', 'Hai già scritto una recensione su'.'"' . $film->titolo . '"');
         } else {
-            $film = Film::where('id', '=', $film_id)->first();
             $dl = new DataLayer();
-            $dl->addToWatchlist($film_id);
-            return redirect()->back()->with('message', '"' . $film->titolo . '" è stato aggiunto alla watchlist');
+            $dl->addReview($film_id);
+            return redirect()->back()->with('message', 'La tua recensione è stata aggiunta');
         }}else{
-            return redirect()->back()->with('message', 'Per aggiungere un film alla watchlist effettuare il login!');
+            return redirect()->back()->with('message', 'Per scrivere una recensione effettuare il login!');
         }
     }
 }
