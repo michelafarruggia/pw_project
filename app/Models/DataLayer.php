@@ -88,4 +88,25 @@ class DataLayer extends Model
         }
         return $films;
     }
+
+    public function addReviewFilm($film_id, $request)
+    {
+        $titolo = $request->titolo;
+        $testo = $request->textarea;
+        $stelle = $request->stelle;
+        Review::insert([
+            'titolo' => $titolo,
+            'numStelle' => $stelle,
+            'testo' => $testo,
+            'film_id' => $film_id,
+            'user_id' => Auth::id(),
+            'nomeUtente' => Auth::user()->name
+        ]);
+    }
+
+    public function getReviewAboutFilm($film_id)
+    {
+        $reviews = Review::where('film_id', '=', $film_id)->get();
+        return $reviews;
+    }
 }

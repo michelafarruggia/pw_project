@@ -167,6 +167,14 @@ body {
     height: auto;
   }
 
+  .review-box{
+    width: 80%;
+    border: 2px solid #c19ee0;
+    padding: 10px;
+    margin: 10px;
+  }
+
+
 
 
 

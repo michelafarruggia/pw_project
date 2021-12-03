@@ -4,35 +4,29 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">
-                    <font color="#cfb7f6">{{ $film->titolo }}</font>, inserisci una recensione:</i>
+                    Inserisci una recensione per <font color="#cfb7f6">{{ $film->titolo }}</font> :
                 </h4>
             </div>
             <div class="modal-body">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        @php
-                        $i = 0;
-                        @endphp
-                        @for($i = 0; $i <= 5; $i++) 
-                        <li><a href="#">{{ $i }}</a></li>
-                        @endfor
-                    </ul>
-                </div>
-                <br>
-                <form>
+                <form action="{{ route('addReview', $film->id) }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input type="text" class="form-control" name="titolo" id="titolo" placeholder="Titolo recensione" aria-describedby="basic-addon1">
+                    <br><br>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Scrivi la tua recensione ... "></textarea>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="stelle" id="stelle" placeholder="Stelle">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-star"></div>
+                        </div>
                     </div>
-                </form>
+                    <br><br>
+                    <textarea class="form-control" type="addReview" name="textarea" id="textarea" cols="70" rows="10" placeholder="Scrivi la tua recensione ... "></textarea>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
-                <button type="button" class="btn btn-primary">Salva</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button submit" class="btn btn-primary">Salva</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

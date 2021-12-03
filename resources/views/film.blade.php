@@ -81,11 +81,8 @@
         </form>
       </div>
       <div class="form-group">
-        <form action="{{ route('addReview', $film->id) }}" method="POST">
-          @csrf
-          @method('POST')
-          <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
-          @include('modal.review')
+        <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
+        @include('modal.review')
       </div>
     </div>
   </div>
@@ -102,7 +99,30 @@
 </div>
 
 <div class="container">
-  <h3>Recensioni degli utenti: </h3>
+  <h3>Recensioni degli utenti </h3>
+  <hr>
+  @foreach($reviews as $review)
+  <div class="review-box">
+  <h4>Recensione da {{ $review->nomeUtente }}</h4>
+  <b>{{ $review-> titolo }}</b>
+  
+  <div class="pull-right">
+  <br>
+    @php
+    $i = 0;
+    $stelle=$review->numStelle
+    @endphp
+    @for($i = 0; $i <= $stelle-1; $i++) 
+    <span class="glyphicon glyphicon-star">
+    @endfor
+    @for($i = 0; $i <= 5-$stelle-1; $i++) 
+    <span class="glyphicon glyphicon-star-empty">
+    @endfor
+  </div>
+  <hr>
+  {{ $review -> testo }}
+  </div>
+  @endforeach
 </div>
 </div>
 </div>

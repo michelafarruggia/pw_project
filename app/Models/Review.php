@@ -12,5 +12,10 @@ class Review extends Model
     protected $table = 'review';
     public $timestamps = false;
     
-    protected $fillable = ['id','numStelle','testo', 'film_id','user_id'];
+    protected $fillable = ['id', 'titolo', 'numStelle','testo', 'film_id','user_id', 'nomeUtente'];
+
+    public function film()
+    {
+        return $this->hasOne(Film::class);
+    }
 }

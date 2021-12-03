@@ -13,7 +13,8 @@ class MovieController extends Controller
         $film = $dl->findFilmById($id);
         $director = $dl->findDirectorById($film->director_id);
         $genreItem = $dl->findGenreById($film->categoria_id);
-        return view('film', ['film' => $film, 'genre' => $genre, 'director'=>$director, 'genreItem'=>$genreItem] );
+        $reviews = $dl->getReviewAboutFilm($film->id);
+        return view('film', ['film' => $film, 'genre' => $genre, 'director'=>$director, 'genreItem'=>$genreItem, 'reviews'=>$reviews]);
     }
 
 }
