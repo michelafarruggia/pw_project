@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 03, 2021 alle 11:53
--- Versione del server: 10.4.18-MariaDB
--- Versione PHP: 8.0.3
+-- Creato il: Dic 03, 2021 alle 18:03
+-- Versione del server: 10.4.19-MariaDB
+-- Versione PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -229,19 +229,21 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
+  `titolo` varchar(255) NOT NULL,
   `numStelle` int(11) NOT NULL,
   `testo` text NOT NULL,
   `film_id` int(10) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `nomeUtente` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `review`
 --
 
-INSERT INTO `review` (`id`, `numStelle`, `testo`, `film_id`, `user_id`) VALUES
-(1, 0, 'ciaociao', 13, 5),
-(2, 0, 'ciao ciao', 13, 5);
+INSERT INTO `review` (`id`, `titolo`, `numStelle`, `testo`, `film_id`, `user_id`, `nomeUtente`) VALUES
+(10, 'Quando la paura è atmosfera pura', 3, 'Ormai se ne sente parlare ovunque: \"The conjuring\" è il miglior film horror degli ultimi anni. La cosa mi ha incuriosito, così sono andato a vederlo anche io. Ho raccattato un paio di amici e ci siamo fiondati nel cinema più vicino. Ispirato alla vera storia della famiglia Perron, che, trasferitasi in una spettrale casa di campagna, si accorgono ben presto che non sono i soli ad abitare quelle fatiscenti mura; chiedono così aiuto ai coniugi Warren, demonologi di professione, sperando che questi siano in grado di liberare la loro casa dall\'oscura presenza che infesta la dimora. Sulle prime sono un po\' scettico sulla riuscita del film, eppure, andando avanti nella visione, devo ammettere che anche questa volta il regista James Wan (che già avevo apprezzato con il primo Saw) ha fatto centro.', 14, 5, 'Michela'),
+(11, 'Un\'incredibile sorpresa', 2, 'L\'evocazione – The Conjuring è un film horror del 2013 diretto da James Wan, basata su dei fatti realmente accaduti nel 1971, con Vera Farmiga, Patrick Wilson e Lili Taylor.\r\n\r\nIl film parla di uno dei casi più inquietanti capitati ai coniugi Warren, i quali vengono chiamati dalla famiglia Perron, terrorizzata perchè da un pò di tempo nella loro nuova casa sta succedendo qualcosa di veramente orribile: porte che si approno da sole, la misteriosa morte del loro cane e delle presenze che non lasciano in pace la famiglia. Toccherà a Ed e Loranne Warren scoprire e affrontare questa minaccia che si rivelerà essere molto potente e spietata.', 14, 6, 'Mattia');
 
 -- --------------------------------------------------------
 
@@ -263,7 +265,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('jUjbE98WauJxTvZQSacvpaUKRh7gQEI7dHa0gnum', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieW52YlVpVDNpUzRaTjJlMUtlQXdYNmoyMmxxY012WFAyd2ZSeUxQZiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kaXJlY3Rvci8xMSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjU7fQ==', 1638292063);
+('oMS9mAhDyt5VyFRumIRn80qCPhDhz8TskiV7swRE', 6, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibndyS2F5TjdzNUpneXdUUWhZYUNDRFVSUG5oTWVROFVUazFtSG94aCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9maWxtLzE0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Njt9', 1638550910);
 
 -- --------------------------------------------------------
 
@@ -422,7 +424,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT per la tabella `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
