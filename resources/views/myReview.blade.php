@@ -27,16 +27,14 @@
 @section('content')
 
 <div class="container">
-@if (session()->has('message'))
-  <div class="alert alert-success">
-    {{ session()->get('message') }}
-  </div>
-  @endif
-
+  <h3>Recensioni degli utenti </h3>
+  <hr>
   @foreach($reviews as $review)
   <div class="review-box">
+    <h4>{{ $review->nomeUtente }}</h4>
+    <hr>
     <b>{{ $review-> titolo }}</b>
-
+          
     <div class="container">
       @php
       $i = 0;
@@ -49,14 +47,9 @@
       <span class="glyphicon glyphicon-star-empty">
       @endfor
     </div>
-    <hr>
+    <br>
     {{ $review -> testo }}
-   
-    <div class="form-group">
-        <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal" value="removeReview">Cancella recensione</button>
-        @include('modal.deleteReview')
-    </div>
   </div>
   @endforeach
 </div>
-@endsection
+  @endsection

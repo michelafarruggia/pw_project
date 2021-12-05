@@ -13,12 +13,15 @@
                     @method('POST')
                     <input type="text" class="form-control" name="titolo" id="titolo" placeholder="Titolo recensione" aria-describedby="basic-addon1">
                     <br><br>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="stelle" id="stelle" placeholder="Stelle">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-star"></div>
-                        </div>
-                    </div>
+                    <select class="form-control" name="stelle" id="stelle">
+                        <option value="">Stelle:</option>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                     <br><br>
                     <textarea class="form-control" type="addReview" name="textarea" id="textarea" cols="70" rows="10" placeholder="Scrivi la tua recensione ... "></textarea>
             </div>
