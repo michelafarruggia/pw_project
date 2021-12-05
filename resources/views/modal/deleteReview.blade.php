@@ -5,12 +5,17 @@
                 <p>Sei sicuro di voler eliminare la tua recensione?</p>
             </div>
             <div class="modal-footer">
+            <div class="form-inline">
+                <div class="form-group">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+                </div>
+                <div class="form-group">
                 <form action="{{ route('removeReview', $review->film_id) }}" method="POST">
                     @csrf
                     @method('POST')
                     <button type="button submit" class="btn btn-primary">Elimina</button>
                 </form>
+                </div>
             </div>
         </div>
     </div>

@@ -40,6 +40,5 @@ class ReviewController extends Controller
         $dl = new DataLayer();
         $dl->removeReviewFilm($film_id);
         return redirect()->back()->with('message', 'La tua recensione è stata correttamente eliminata');
-
     }
 }

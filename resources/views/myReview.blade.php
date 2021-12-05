@@ -32,6 +32,7 @@
     {{ session()->get('message') }}
   </div>
   @endif
+
   @foreach($reviews as $review)
   <div class="review-box">
     <b>{{ $review-> titolo }}</b>
@@ -48,9 +49,6 @@
       <span class="glyphicon glyphicon-star-empty">
       @endfor
     </div>
-
-   
-
     <hr>
     {{ $review -> testo }}
    
