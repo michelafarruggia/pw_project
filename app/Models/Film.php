@@ -16,6 +16,18 @@ class Film extends Model
 
     public function director()
     {
-        return $this->belongsTo('Progetto\Director');
+        return $this->belongsTo(Director::class);
     }
+
+    public function categoria()
+    {
+        return $this->belongsTo(Genre::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+
 }

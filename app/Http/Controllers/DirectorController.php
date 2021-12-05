@@ -5,18 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DataLayer;
 
-class FrontController extends Controller
+class DirectorController extends Controller
 {
-    public function index()
+    public function index($id)
     {
         $dl = new DataLayer();
         $genre = $dl->listGenre();
-        $film = $dl->listFilms();
+        $director = $dl->findDirectorById($id);
         //return view('home', compact('genre'));
-        return view('index', ['genre' => $genre, 'film' => $film]);
+        return view('director', ['genre' => $genre, 'director' => $director]);
     }
-   
-   
 }
-
-

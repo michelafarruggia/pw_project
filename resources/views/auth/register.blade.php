@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <a href="{{ route('index') }}">
+            <img src="{{ url('/') }}/img/logo.png" width="150" height="150" style="border-radius:110.75px">
             </a>
         </x-slot>
 
