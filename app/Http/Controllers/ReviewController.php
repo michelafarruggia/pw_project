@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
+    public function index()
+    {
+        $dl = new DataLayer();
+        $genre = $dl->listGenre();
+        $film = $dl->listFilms();
+        $reviews = $dl -> listReviews();
+        //return view('home', compact('genre'));
+        return view('myReview', ['genre' => $genre, 'film' => $film, 'reviews' => $reviews]);
+    }
+
     public function addReview(Request $request, $film_id)
     {
         if(Auth::check()){
@@ -23,5 +33,13 @@ class ReviewController extends Controller
         }}else{
             return redirect()->back()->with('message', 'Per scrivere una recensione effettuare il login!');
         }
+    }
+
+    public function removeReview($film_id)
+    {
+        $dl = new DataLayer();
+        $dl->removeReviewFilm($film_id);
+        return redirect()->back()->with('message', 'La tua recensione è stata correttamente eliminata');
+
     }
 }

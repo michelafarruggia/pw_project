@@ -22,6 +22,12 @@ class DataLayer extends Model
         return $listFilms;
     }
 
+    public function listReviews()
+    {
+        $listReviews = Review::where('user_id', Auth::id())->get();
+        return $listReviews;
+    }
+
     public function findFilmById($id)
     {
         return Film::find($id);
@@ -108,5 +114,10 @@ class DataLayer extends Model
     {
         $reviews = Review::where('film_id', '=', $film_id)->get();
         return $reviews;
+    }
+
+    public function removeReviewFilm($film_id)
+    {
+        Review::where('film_id', '=', $film_id)->where('user_id', Auth::id())->delete();
     }
 }

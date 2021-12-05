@@ -45,4 +45,8 @@ Route::post('/add/watchlist/{id}', [\App\Http\Controllers\WatchlistController::c
 
 Route::post('/add/review/{id}', [\App\Http\Controllers\ReviewController::class, 'addReview'])->name('addReview');
 
+Route::get('/myReview', [\App\Http\Controllers\ReviewController::class, 'index'])->name('myReview');
+
+Route::post('/remove/review/{id}', [\App\Http\Controllers\ReviewController::class, 'removeReview'])->name('removeReview');
+
 require __DIR__.'/auth.php';

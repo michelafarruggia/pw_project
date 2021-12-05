@@ -103,24 +103,24 @@
   <hr>
   @foreach($reviews as $review)
   <div class="review-box">
-  <h4>Recensione da {{ $review->nomeUtente }}</h4>
-  <b>{{ $review-> titolo }}</b>
-  
-  <div class="pull-right">
-  <br>
-    @php
-    $i = 0;
-    $stelle=$review->numStelle
-    @endphp
-    @for($i = 0; $i <= $stelle-1; $i++) 
-    <span class="glyphicon glyphicon-star">
-    @endfor
-    @for($i = 0; $i <= 5-$stelle-1; $i++) 
-    <span class="glyphicon glyphicon-star-empty">
-    @endfor
-  </div>
-  <hr>
-  {{ $review -> testo }}
+    <h4>{{ $review->nomeUtente }}</h4>
+    <hr>
+    <b>{{ $review-> titolo }}</b>
+          
+    <div class="container">
+      @php
+      $i = 0;
+      $stelle=$review->numStelle
+      @endphp
+      @for($i = 0; $i <= $stelle-1; $i++) 
+      <span class="glyphicon glyphicon-star">
+      @endfor
+      @for($i = 0; $i <= 5-$stelle-1; $i++) 
+      <span class="glyphicon glyphicon-star-empty">
+      @endfor
+    </div>
+    <br>
+    {{ $review -> testo }}
   </div>
   @endforeach
 </div>
