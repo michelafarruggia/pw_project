@@ -10,7 +10,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
                 </div>
                 <div class="form-group">
-                <form action="{{ route('removeReview', $review->film_id) }}" method="POST">
+                <form action="{{ route('removeReview', $review->id) }}" method="POST">
                     @csrf
                     @method('POST')
                     <button type="button submit" class="btn btn-primary">Elimina</button>

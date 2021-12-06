@@ -125,8 +125,8 @@ class DataLayer extends Model
         return $reviews;
     }
 
-    public function removeReviewFilm($film_id)
+    public function removeReviewFilm($id)
     {
-        Review::where('film_id', '=', $film_id)->where('user_id', Auth::id())->delete();
+        Review::where('id', '=', $id)->delete();
     }
 }

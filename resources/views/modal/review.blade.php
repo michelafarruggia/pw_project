@@ -27,27 +27,27 @@
 
                     <br><br>
                     <div class="form-group has-error">
-                    <select class="form-control @error('stelle') is-invalid @enderror" name="stelle" id="stelle">
-                        <option value="">Stelle:</option>
-                        <option>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                    @error('stelle')
-                    <span class="has-error">
-                    <span id="stelle" class="help-block"> {{ $message }}</span>
-                        @enderror
+                        <select class="form-control @error('stelle') is-invalid @enderror" name="stelle" id="stelle">
+                            <option value="">Stelle:</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        @error('stelle')
+                        <span class="has-error">
+                            <span id="stelle" class="help-block">{{ $message }}</span>
+                            @enderror
                     </div>
                     <br><br>
                     <div class="form-group has-error">
-                    <textarea class="form-control @error('textarea') is-invalid @enderror" type="addReview" name="textarea" id="textarea" cols="70" rows="10" placeholder="Scrivi la tua recensione ... ">{{ old('textarea') }}</textarea>
-                    @error('textarea')
-                    <span class="help-block" role="alert">
-                    <span id="textarea" class="help-block"> {{ $message }}</span>
-                        @enderror
+                        <textarea class="form-control @error('textarea') is-invalid @enderror" type="addReview" name="textarea" id="textarea" cols="70" rows="10" placeholder="Scrivi la tua recensione ... ">{{ old('textarea') }}</textarea>
+                        @error('textarea')
+                        <span class="help-block" role="alert">
+                            <span id="textarea" class="help-block">{{ $message }}</span>
+                            @enderror
                     </div>
             </div>
             <div class="modal-footer">
