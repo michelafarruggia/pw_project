@@ -14,8 +14,5 @@ class Review extends Model
     
     protected $fillable = ['id', 'titolo', 'numStelle','testo', 'film_id', 'titolo_film', 'user_id', 'nomeUtente'];
 
-    public function film()
-    {
-        return $this->hasOne(Film::class);
-    }
+    
 }

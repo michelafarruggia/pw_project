@@ -22,6 +22,12 @@ class ReviewController extends Controller
 
     public function addReview(Request $request, $film_id)
     {
+        $request->validate([
+            'titolo' => 'required',
+            'stelle' => 'required',
+            'textarea' => 'max:255',
+        ]);
+
         if (Auth::check()) {
             $film = Film::where('id', '=', $film_id)->first();
             if (Review::where('film_id', '=', $film_id)->where('user_id', Auth::id())->exists()) {
