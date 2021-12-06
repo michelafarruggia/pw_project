@@ -29,6 +29,8 @@
 <div class="container">
   <h3>Recensioni degli utenti </h3>
   <hr>
+  
+  <div class="container">
   @foreach($reviews as $review)
   <div class="review-box">
     <h4>Recensione del film <font color="#cfb7f6">{{ $review->titolo_film }}</font></h4>
@@ -53,7 +55,9 @@
         <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal" value="removeReview">Cancella recensione</button>
         @include('modal.deleteReview')
     </div>
-  </div>
+</div>
+    </div>
   @endforeach
+  
 </div>
   @endsection
