@@ -33,6 +33,12 @@ class DataLayer extends Model
         return Film::find($id);
     }
 
+    public function findFilmTitleById($id)
+    {
+        $titolo= Film::where('id', '=', $id)->select('titolo')->value('titolo');
+        return $titolo;
+    }
+
     public function findDirectorById($id)
     {
         return Director::find($id);
@@ -100,14 +106,17 @@ class DataLayer extends Model
         $titolo = $request->titolo;
         $testo = $request->textarea;
         $stelle = $request->stelle;
+       
         Review::insert([
             'titolo' => $titolo,
             'numStelle' => $stelle,
             'testo' => $testo,
             'film_id' => $film_id,
+            'titolo_film' => $this->findFilmTitleById($film_id),
             'user_id' => Auth::id(),
             'nomeUtente' => Auth::user()->name
         ]);
+       
     }
 
     public function getReviewAboutFilm($film_id)

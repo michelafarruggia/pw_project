@@ -31,9 +31,9 @@
   <hr>
   @foreach($reviews as $review)
   <div class="review-box">
-    <h4>{{ $review->nomeUtente }}</h4>
+    <h4>Recensione del film <font color="#cfb7f6">{{ $review->titolo_film }}</font></h4>
     <hr>
-    <b>{{ $review-> titolo }}</b>
+    <font color="#cfb7f6"><b>{{ $review-> titolo }}</b></font>
           
     <div class="container">
       @php
@@ -41,14 +41,18 @@
       $stelle=$review->numStelle
       @endphp
       @for($i = 0; $i <= $stelle-1; $i++) 
-      <span class="glyphicon glyphicon-star">
+      <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
       @endfor
       @for($i = 0; $i <= 5-$stelle-1; $i++) 
-      <span class="glyphicon glyphicon-star-empty">
+      <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
       @endfor
     </div>
     <br>
     {{ $review -> testo }}
+    <div class="form-group">
+        <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal" value="removeReview">Cancella recensione</button>
+        @include('modal.deleteReview')
+    </div>
   </div>
   @endforeach
 </div>
