@@ -51,7 +51,7 @@
       <br>
       {{ $review -> testo }}
       <div class="form-group">
-        <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal" value="removeReview">Cancella recensione</button>
+        <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal{{$review->id}}" value="removeReview" >Cancella recensione</button>
         @include('modal.deleteReview')
       </div>
     </div>

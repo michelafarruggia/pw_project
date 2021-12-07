@@ -1,4 +1,4 @@
-<div class="modal fade" id="deleteReviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteReviewModal{{$review->id}}" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -13,7 +13,7 @@
                 <form action="{{ route('removeReview', $review->id) }}" method="POST">
                     @csrf
                     @method('POST')
-                    <button type="button submit" class="btn btn-primary">Elimina</button>
+                    <button type="button submit" class="btn btn-primary" id="submit">Elimina</button>
                 </form>
                 </div>
             </div>
