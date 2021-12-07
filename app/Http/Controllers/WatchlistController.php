@@ -20,7 +20,6 @@ class WatchlistController extends Controller
 
     public function addToWatchlist($film_id)
     {
-        if(Auth::check()){
         $film = Film::where('id', '=', $film_id)->first();
         if (MovieToWatch::where('film_id', '=', $film_id)->where('user_id', Auth::id())->exists()) {
             $dl = new DataLayer();
@@ -31,8 +30,6 @@ class WatchlistController extends Controller
             $dl = new DataLayer();
             $dl->addToWatchlist($film_id);
             return redirect()->back()->with('message', '"' . $film->titolo . '" è stato aggiunto alla watchlist');
-        }}else{
-            return redirect()->back()->with('message', 'Per aggiungere un film alla watchlist effettuare il login!');
         }
     }
 }

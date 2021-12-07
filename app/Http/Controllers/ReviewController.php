@@ -28,20 +28,9 @@ class ReviewController extends Controller
             'textarea' => 'max:255',
         ]);
 
-        if (Auth::check()) {
-            $film = Film::where('id', '=', $film_id)->first();
-            if (Review::where('film_id', '=', $film_id)->where('user_id', Auth::id())->exists()) {
-                return redirect()->back()->with('message', 'Hai già scritto una recensione su ' . '"' . $film->titolo . '"');
-            } else if ($request->titolo != NULL and $request->stelle != NULL) {
-                $dl = new DataLayer();
-                $dl->addReviewFilm($film_id, $request);
-                return redirect()->back()->with('message', 'La tua recensione è stata aggiunta');
-            } else{
-                return redirect()->back()->with('message', 'Compilare i campi obbligatori *');
-            }
-        } else {
-            return redirect()->back()->with('message', 'Per scrivere una recensione effettuare il login!');
-        }
+        $dl = new DataLayer();
+        $dl->addReviewFilm($film_id, $request);
+        return redirect()->back()->with('message', 'La tua recensione è stata aggiunta');
     }
 
     public function removeReview($id)

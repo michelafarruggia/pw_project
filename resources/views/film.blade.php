@@ -77,11 +77,27 @@
         <form action="{{ route('watchlistroute', $film->id) }}" method="POST">
           @csrf
           @method('POST')
-          <button class="btn btn-primary" title="Aggiungi/rimuovi dalla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
+          @if(Auth::check())
+            @if ($checkFilm == 1)
+            <button class="btn btn-primary exists" title="Rimuovi dalla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
+            @else
+            <button class="btn btn-primary" title="Aggiungi alla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
+            @endif
+          @else
+          <button type="button" title="Per sincronizzare la watchlist effettua il login" class="btn btn-primary disabled"><span class="glyphicon glyphicon-bookmark"></button>
+          @endif
         </form>
       </div>
       <div class="form-group">
-        <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
+        @if(Auth::check())
+          @if ($checkReview == 1)
+          <button type="button" title="Hai già scritto una recensione" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
+          @else
+          <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
+          @endif
+          @else
+          <button type="button" title="Per scrivere una recensione effettua il login" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
+          @endif
         @include('modal.review')
       </div>
     </div>
