@@ -130,10 +130,12 @@
       $i = 0;
       $stelle=$review->numStelle
       @endphp
-      @for($i = 0; $i <= $stelle-1; $i++) <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
-          @endfor
-          @for($i = 0; $i <= 5-$stelle-1; $i++) <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
-              @endfor
+      @for($i = 0; $i <= $stelle-1; $i++) 
+      <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
+      @endfor
+      @for($i = 0; $i <= 5-$stelle-1; $i++) 
+      <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
+      @endfor
     </div>
     <br>
     {{ $review -> testo }}

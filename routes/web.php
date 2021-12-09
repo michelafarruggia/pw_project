@@ -49,4 +49,6 @@ Route::get('/myReview', [\App\Http\Controllers\ReviewController::class, 'index']
 
 Route::post('/remove/review/{id}', [\App\Http\Controllers\ReviewController::class, 'removeReview'])->name('removeReview');
 
+Route::post('/update/review/{id}', [\App\Http\Controllers\ReviewController::class, 'updateReview'])->name('updateReview');
+
 require __DIR__.'/auth.php';

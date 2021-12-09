@@ -153,4 +153,13 @@ class DataLayer extends Model
     {
         Review::where('id', '=', $id)->delete();
     }
+
+    public function updateReviewFilm($request, $id){
+        $titolo = $request->titolo;
+        $testo = $request->textarea;
+        $stelle = $request->stelle;
+
+        Review::where('id', $id)
+              ->update(['titolo' => $titolo, 'numStelle' => $stelle, 'testo' => $testo]);
+    }
 }

@@ -44,14 +44,19 @@
         $i = 0;
         $stelle=$review->numStelle
         @endphp
-        @for($i = 0; $i <= $stelle-1; $i++) <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
-            @endfor
-            @for($i = 0; $i <= 5-$stelle-1; $i++) <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
-                @endfor
+        @for($i = 0; $i <= $stelle-1; $i++) 
+        <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
+        @endfor
+        @for($i = 0; $i <= 5-$stelle-1; $i++) 
+        <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
+        @endfor
       </div>
       <br>
       {{ $review -> testo }}
+      
       <div class="form-group">
+      <button style="margin-top:10px" type="button" title="Modifica recensione" class="btn btn-primary" data-toggle="modal" data-target="#updateReviewModal{{$review->id}}" value="updateReview"><span class="glyphicon glyphicon-pencil"></button>
+        @include('modal.updateReview')
         <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal{{$review->id}}" value="removeReview" >Cancella recensione</button>
         @include('modal.deleteReview')
       </div>

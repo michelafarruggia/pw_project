@@ -39,4 +39,17 @@ class ReviewController extends Controller
         $dl->removeReviewFilm($id);
         return redirect()->back()->with('message', 'La tua recensione è stata correttamente eliminata');
     }
+
+    public function updateReview(Request $request, $id)
+    {
+        $request->validate([
+            'titolo' => 'required',
+            'stelle' => 'required',
+            'textarea' => 'max:255',
+        ]);
+
+        $dl = new DataLayer();
+        $dl->updateReviewFilm($request, $id);
+        return redirect()->back()->with('message', 'La tua recensione è stata correttamente modificata');
+    }
 }
