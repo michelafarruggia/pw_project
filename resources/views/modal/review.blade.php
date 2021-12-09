@@ -21,7 +21,7 @@
                     <div class="form-group has-error">
                         <input type="text" class="form-control @error('titolo') is-invalid @enderror" name="titolo" id="titolo" placeholder="Titolo recensione" aria-describedby="basic-addon1" value="{{ old('titolo') }}">
                         @error('titolo')
-                        <span id="basic-addon1" class="help-block"> {{ $message }}</span>
+                        <span id="basic-addon1" class="help-block">{{ $message }}</span>
                         @enderror
                     </div>
 

@@ -159,7 +159,15 @@ class DataLayer extends Model
         $testo = $request->textarea;
         $stelle = $request->stelle;
 
+        if($titolo!=NULL and $stelle!=NULL){
         Review::where('id', $id)
               ->update(['titolo' => $titolo, 'numStelle' => $stelle, 'testo' => $testo]);
+        }else if($titolo==NULL and $stelle!=NULL){
+            Review::where('id', $id)
+              ->update(['numStelle' => $stelle, 'testo' => $testo]);
+        }else{
+            Review::where('id', $id)
+              ->update(['titolo' => $titolo, 'testo' => $testo]);
+        }
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\DataLayer;
 use App\Models\Film;
 use App\Models\Review;
@@ -42,11 +43,6 @@ class ReviewController extends Controller
 
     public function updateReview(Request $request, $id)
     {
-        $request->validate([
-            'titolo' => 'required',
-            'stelle' => 'required',
-            'textarea' => 'max:255',
-        ]);
 
         $dl = new DataLayer();
         $dl->updateReviewFilm($request, $id);

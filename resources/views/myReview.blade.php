@@ -60,7 +60,7 @@
       {{ $review -> testo }}
       
       <div class="form-group">
-      <button style="margin-top:10px" type="button" title="Modifica recensione" class="btn btn-primary" data-toggle="modal" data-target="#updateReviewModal{{$review->id}}" value="updateReview">Modifica</button>
+        <button style="margin-top:10px" type="button" title="Modifica recensione" class="btn btn-primary" data-toggle="modal" data-target="#updateReviewModal{{$review->id}}" value="updateReview">Modifica</button>
         @include('modal.updateReview')
         <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal{{$review->id}}" value="removeReview" >Elimina</button>
         @include('modal.deleteReview')
