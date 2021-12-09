@@ -26,7 +26,7 @@ class ReviewController extends Controller
         $request->validate([
             'titolo' => 'required',
             'stelle' => 'required',
-            'textarea' => 'max:255',
+            'textarea' => 'max:800',
         ]);
 
         $dl = new DataLayer();
