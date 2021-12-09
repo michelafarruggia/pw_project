@@ -78,11 +78,11 @@
           @csrf
           @method('POST')
           @if(Auth::check())
-            @if ($checkFilm == 1)
-            <button class="btn btn-primary exists" title="Rimuovi dalla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
-            @else
-            <button class="btn btn-primary" title="Aggiungi alla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
-            @endif
+          @if ($checkFilm == 1)
+          <button class="btn btn-primary exists" title="Rimuovi dalla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
+          @else
+          <button class="btn btn-primary" title="Aggiungi alla Watchlist" type="submit button" value="toWatch"><span class="glyphicon glyphicon-bookmark"></span></button>
+          @endif
           @else
           <button type="button" title="Per sincronizzare la watchlist effettua il login" class="btn btn-primary disabled"><span class="glyphicon glyphicon-bookmark"></button>
           @endif
@@ -90,14 +90,14 @@
       </div>
       <div class="form-group">
         @if(Auth::check())
-          @if ($checkReview == 1)
-          <button type="button" title="Hai già scritto una recensione" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
-          @else
-          <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
-          @endif
-          @else
-          <button type="button" title="Per scrivere una recensione effettua il login" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
-          @endif
+        @if ($checkReview == 1)
+        <button type="button" title="Hai già scritto una recensione" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
+        @else
+        <button type="button" title="Scrivi una recensione" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" value="addReview"><span class="glyphicon glyphicon-pencil"></button>
+        @endif
+        @else
+        <button type="button" title="Per scrivere una recensione effettua il login" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
+        @endif
         @include('modal.review')
       </div>
     </div>
@@ -122,24 +122,28 @@
     <h4>{{ $review->nomeUtente }}</h4>
     <hr>
     <font color="#cfb7f6"><b>{{ $review-> titolo }}</b></font>
-          
+
     <div class="container">
       @php
       $i = 0;
       $stelle=$review->numStelle
       @endphp
-      @for($i = 0; $i <= $stelle-1; $i++) 
-      <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
-      @endfor
-      @for($i = 0; $i <= 5-$stelle-1; $i++) 
-      <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
-      @endfor
+      @for($i = 0; $i <= $stelle-1; $i++) <font color="#cfb7f6"><span class="glyphicon glyphicon-star"></font>
+          @endfor
+          @for($i = 0; $i <= 5-$stelle-1; $i++) <font color="#cfb7f6"><span class="glyphicon glyphicon-star-empty"></font>
+              @endfor
     </div>
     <br>
     {{ $review -> testo }}
   </div>
   @endforeach
+  <div class="pull-right" style="margin-top:30px; margin-bottom:30px">
+  <span>
+    {{$reviews->links()}}
+  </span>
 </div>
+</div>
+
 </div>
 </div>
 

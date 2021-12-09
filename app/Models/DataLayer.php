@@ -36,7 +36,7 @@ class DataLayer extends Model
 
     public function listReviewsPaginated()
     {
-        $listReviews = Review::where('user_id', Auth::id())->get();
+        $listReviews = Review::where('user_id', Auth::id())->paginate(5);
         return $listReviews;
     }
 
@@ -64,6 +64,12 @@ class DataLayer extends Model
     public function findFilmsByGenreId($id)
     {
         $listFilms = Film::where('categoria_id', '=', $id)->get();
+        return $listFilms;
+    }
+
+    public function findFilmsByGenreIdPaginated($id)
+    {
+        $listFilms = Film::where('categoria_id', '=', $id)->paginate(8);
         return $listFilms;
     }
 
@@ -134,6 +140,12 @@ class DataLayer extends Model
     public function getReviewAboutFilm($film_id)
     {
         $reviews = Review::where('film_id', '=', $film_id)->get();
+        return $reviews;
+    }
+
+    public function getReviewAboutFilmPaginated($film_id)
+    {
+        $reviews = Review::where('film_id', '=', $film_id)->paginate(3);
         return $reviews;
     }
 

@@ -15,7 +15,7 @@ class ReviewController extends Controller
         $dl = new DataLayer();
         $genre = $dl->listGenre();
         $film = $dl->listFilms();
-        $reviews = $dl->listReviews();
+        $reviews = $dl->listReviewsPaginated();
         //return view('home', compact('genre'));
         return view('myReview', ['genre' => $genre, 'film' => $film, 'reviews' => $reviews]);
     }

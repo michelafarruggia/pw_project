@@ -15,7 +15,7 @@ class MovieController extends Controller
         $film = $dl->findFilmById($id);
         $director = $dl->findDirectorById($film->director_id);
         $genreItem = $dl->findGenreById($film->categoria_id);
-        $reviews = $dl->getReviewAboutFilm($film->id);
+        $reviews = $dl->getReviewAboutFilmPaginated($film->id);
 
         if(MovieToWatch::where('film_id', '=', $id)->where('user_id', Auth::id())->exists())
         {

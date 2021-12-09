@@ -58,5 +58,11 @@
   </div>
   @endforeach
 
+  <div class="pull-right" style="margin-top:30px; margin-bottom:30px">
+  <span>
+   {{$reviews->links()}}
+  </span>
+  </div>  
+
 </div>
 @endsection
