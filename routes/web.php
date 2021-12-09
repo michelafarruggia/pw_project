@@ -25,7 +25,7 @@ Route::get('/index', [\App\Http\Controllers\FrontController::class, 'index'])->n
 Route::get('/authenticated', function () {
     $dl = new DataLayer();
     $genre = $dl->listGenre();
-    $film = $dl->listFilms();
+    $film = $dl->listFilmPaginated();
     return view('index', ['genre' => $genre, 'film' => $film]);
 })->middleware(['auth'])->name('authenticated');
 
