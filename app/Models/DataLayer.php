@@ -22,7 +22,19 @@ class DataLayer extends Model
         return $listFilms;
     }
 
+    public function listFilmPaginated()
+    {
+        $listFilms = Film::paginate(8);
+        return $listFilms;
+    }
+
     public function listReviews()
+    {
+        $listReviews = Review::where('user_id', Auth::id())->get();
+        return $listReviews;
+    }
+
+    public function listReviewsPaginated()
     {
         $listReviews = Review::where('user_id', Auth::id())->get();
         return $listReviews;

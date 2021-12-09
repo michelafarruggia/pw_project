@@ -11,7 +11,7 @@ class FrontController extends Controller
     {
         $dl = new DataLayer();
         $genre = $dl->listGenre();
-        $film = $dl->listFilms();
+        $film = $dl->listFilmPaginated();
         //return view('home', compact('genre'));
         return view('index', ['genre' => $genre, 'film' => $film]);
     }
