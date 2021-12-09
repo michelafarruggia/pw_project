@@ -12,7 +12,7 @@ class Review extends Model
     protected $table = 'review';
     public $timestamps = false;
     
-    protected $fillable = ['id', 'titolo', 'numStelle','testo', 'film_id', 'titolo_film', 'user_id', 'nomeUtente'];
+    protected $fillable = ['id', 'titolo', 'numStelle','testo', 'film_id', 'titolo_film', 'user_id', 'nomeUtente', 'created_at'];
 
     
 }

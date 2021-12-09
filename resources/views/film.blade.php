@@ -119,7 +119,9 @@
   <hr>
   @foreach($reviews as $review)
   <div class="review-box">
-    <h4>{{ $review->nomeUtente }}</h4>
+    <h4>{{ $review->nomeUtente }}
+    <div class="pull-right"><h5>{{ $review->created_at}}</h5></div>
+    </h4>
     <hr>
     <font color="#cfb7f6"><b>{{ $review-> titolo }}</b></font>
 

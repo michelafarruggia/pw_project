@@ -33,7 +33,8 @@
   <div class="container">
     @foreach($reviews as $review)
     <div class="review-box">
-      <h4>Recensione del film <font color="#cfb7f6">{{ $review->titolo_film }}</font>
+      <h4>Recensione del film <font color="#cfb7f6">{{ $review->titolo_film }}</font> 
+      <div class="pull-right"><h5>{{ $review->created_at}}</h5></div>
       </h4>
       <hr>
       <font color="#cfb7f6"><b>{{ $review-> titolo }}</b></font>
