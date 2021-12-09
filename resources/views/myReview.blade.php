@@ -27,7 +27,12 @@
 @section('content')
 
 <div class="container">
-  <h3>Recensioni degli utenti </h3>
+  @if (session()->has('message'))
+  <div class="alert alert-success">
+    {{ session()->get('message') }}
+  </div>
+  @endif
+  <h3>Le tue recensioni: </h3>
   <hr>
 
   <div class="container">
@@ -55,9 +60,9 @@
       {{ $review -> testo }}
       
       <div class="form-group">
-      <button style="margin-top:10px" type="button" title="Modifica recensione" class="btn btn-primary" data-toggle="modal" data-target="#updateReviewModal{{$review->id}}" value="updateReview"><span class="glyphicon glyphicon-pencil"></button>
+      <button style="margin-top:10px" type="button" title="Modifica recensione" class="btn btn-primary" data-toggle="modal" data-target="#updateReviewModal{{$review->id}}" value="updateReview">Modifica</button>
         @include('modal.updateReview')
-        <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal{{$review->id}}" value="removeReview" >Cancella recensione</button>
+        <button style="margin-top:10px" type="button" title="Elimina recensione" class="btn btn-primary" data-toggle="modal" data-target="#deleteReviewModal{{$review->id}}" value="removeReview" >Elimina</button>
         @include('modal.deleteReview')
       </div>
     </div>
