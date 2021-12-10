@@ -24,14 +24,8 @@ class DataLayer extends Model
 
     public function listFilmPaginated()
     {
-        $listFilms = Film::paginate(8);
+        $listFilms = Film::orderBy('titolo', 'asc')->paginate(8);
         return $listFilms;
-    }
-
-    public function listReviews()
-    {
-        $listReviews = Review::where('user_id', Auth::id())->get();
-        return $listReviews;
     }
 
     public function listReviewsPaginated()
