@@ -55,7 +55,7 @@
                         <ul class="dropdown-menu center-text">
                             <li><a href="{{ route('watchlist') }}"><span class="glyphicon glyphicon-bookmark"></span> Watchlist</a></li>
                             <li><a href="{{ route('myReview') }}"><span class="glyphicon glyphicon-pencil"></span> Le mie recensioni</a></li>
-                            <li><a href="#deleteProfile" data-toggle="modal" data-target="#deleteProfile">Elimina profilo</a></li>
+                            <li><a href="#deleteProfile" data-toggle="modal" data-target="#deleteProfile"><span class="glyphicon glyphicon-trash"></span> Elimina profilo</a></li>
                             <li role="separator" class="divider"></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
@@ -63,6 +63,7 @@
 
                                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
+                                                <span class="glyphicon glyphicon-log-out"></span> 
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
                                 </form>
