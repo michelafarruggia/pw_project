@@ -51,4 +51,6 @@ Route::post('/remove/review/{id}', [\App\Http\Controllers\ReviewController::clas
 
 Route::post('/update/review/{id}', [\App\Http\Controllers\ReviewController::class, 'updateReview'])->name('updateReview');
 
+Route::post('/delete/user', [\App\Http\Controllers\ProfileController::class, 'deleteProfile'])->name('deleteProfile');
+
 require __DIR__.'/auth.php';

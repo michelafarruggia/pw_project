@@ -99,6 +99,7 @@
         <button type="button" title="Per scrivere una recensione effettua il login" class="btn btn-primary disabled"><span class="glyphicon glyphicon-pencil"></button>
         @endif
         @include('modal.review')
+        @include('modal.deleteProfile')
       </div>
     </div>
   </div>

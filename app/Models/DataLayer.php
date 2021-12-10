@@ -100,6 +100,21 @@ class DataLayer extends Model
         MovieToWatch::where('film_id', '=', $film_id)->where('user_id', Auth::id())->delete();
     }
 
+    public function removeWatchlist()
+    {
+        MovieToWatch::where('user_id', Auth::id())->delete();
+    }
+
+    public function removeReviews()
+    {
+        Review::where('user_id', Auth::id())->delete();
+    }
+
+    public function removeUser()
+    {
+        User::where('id', Auth::id())->delete();
+    }
+
     public function filmToWatch()
     {
         $listIdFilms = MovieToWatch::all()->where('user_id', Auth::id())->pluck(['film_id']);

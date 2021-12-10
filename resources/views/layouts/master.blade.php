@@ -55,6 +55,7 @@
                         <ul class="dropdown-menu center-text">
                             <li><a href="{{ route('watchlist') }}"><span class="glyphicon glyphicon-bookmark"></span> Watchlist</a></li>
                             <li><a href="{{ route('myReview') }}"><span class="glyphicon glyphicon-pencil"></span> Le mie recensioni</a></li>
+                            <li><a href="#deleteProfile" data-toggle="modal" data-target="#deleteProfile">Elimina profilo</a></li>
                             <li role="separator" class="divider"></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">

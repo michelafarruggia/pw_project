@@ -69,6 +69,8 @@
   </div>
   @endforeach
 
+  @include('modal.deleteProfile')
+
   <div class="pull-right" style="margin-top:30px; margin-bottom:30px">
   <span>
    {{$reviews->links()}}
