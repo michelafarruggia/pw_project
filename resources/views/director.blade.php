@@ -26,6 +26,7 @@
 
 @section('content')
 <div class="container">
+
   <div class="center-block">
   <h1>{{ $director->firstname }}  {{ $director->lastname }}</h1>
   <div style="float: left; margin-right: 10px">
@@ -36,5 +37,6 @@
     {{ $director->descrizione }}
   </p>
 </div>
+@include('modal.deleteProfile')
 </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\DataLayer;
 use App\Models\Film;
 use App\Models\Review;
@@ -15,30 +16,36 @@ class ReviewController extends Controller
         $dl = new DataLayer();
         $genre = $dl->listGenre();
         $film = $dl->listFilms();
-        $reviews = $dl -> listReviews();
+        $reviews = $dl->listReviewsPaginated();
         //return view('home', compact('genre'));
         return view('myReview', ['genre' => $genre, 'film' => $film, 'reviews' => $reviews]);
     }
 
     public function addReview(Request $request, $film_id)
     {
-        if(Auth::check()){
-        $film = Film::where('id', '=', $film_id)->first();
-        if (Review::where('film_id', '=', $film_id)->where('user_id', Auth::id())->exists()) {
-            return redirect()->back()->with('message', 'Hai già scritto una recensione su '.'"' . $film->titolo . '"');
-        } else {
-            $dl = new DataLayer();
-            $dl->addReviewFilm($film_id, $request);
-            return redirect()->back()->with('message', 'La tua recensione è stata aggiunta');
-        }}else{
-            return redirect()->back()->with('message', 'Per scrivere una recensione effettuare il login!');
-        }
+        $request->validate([
+            'titolo' => 'required',
+            'stelle' => 'required',
+            'textarea' => 'max:800',
+        ]);
+
+        $dl = new DataLayer();
+        $dl->addReviewFilm($film_id, $request);
+        return redirect()->back()->with('message', 'La tua recensione è stata aggiunta');
     }
 
-    public function removeReview($film_id)
+    public function removeReview($id)
     {
         $dl = new DataLayer();
-        $dl->removeReviewFilm($film_id);
+        $dl->removeReviewFilm($id);
         return redirect()->back()->with('message', 'La tua recensione è stata correttamente eliminata');
+    }
+
+    public function updateReview(Request $request, $id)
+    {
+
+        $dl = new DataLayer();
+        $dl->updateReviewFilm($request, $id);
+        return redirect()->back()->with('message', 'La tua recensione è stata correttamente modificata');
     }
 }

@@ -174,7 +174,22 @@ body {
     margin: 10px;
   }
 
+.exists{
+  background-color: #dbbff5;
+}
 
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: #dae2e9;
+  border-color: #c6d7e6;
+}
 
 
 

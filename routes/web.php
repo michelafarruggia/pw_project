@@ -25,7 +25,7 @@ Route::get('/index', [\App\Http\Controllers\FrontController::class, 'index'])->n
 Route::get('/authenticated', function () {
     $dl = new DataLayer();
     $genre = $dl->listGenre();
-    $film = $dl->listFilms();
+    $film = $dl->listFilmPaginated();
     return view('index', ['genre' => $genre, 'film' => $film]);
 })->middleware(['auth'])->name('authenticated');
 
@@ -48,5 +48,9 @@ Route::post('/add/review/{id}', [\App\Http\Controllers\ReviewController::class, 
 Route::get('/myReview', [\App\Http\Controllers\ReviewController::class, 'index'])->name('myReview');
 
 Route::post('/remove/review/{id}', [\App\Http\Controllers\ReviewController::class, 'removeReview'])->name('removeReview');
+
+Route::post('/update/review/{id}', [\App\Http\Controllers\ReviewController::class, 'updateReview'])->name('updateReview');
+
+Route::post('/delete/user', [\App\Http\Controllers\ProfileController::class, 'deleteProfile'])->name('deleteProfile');
 
 require __DIR__.'/auth.php';

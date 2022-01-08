@@ -17,6 +17,7 @@
 
 @section('content')
 <div class="container">
+
     <div class="row placeholders">
         <section class="margine-bottom">
             <h1>La tua watchlist:</h1>
@@ -31,6 +32,7 @@
                         @else
                         <div class="alert alert-success" role="alert">La tua watchlist è vuota</div>
                         @endif
+                        @include('modal.deleteProfile')
                 </div>
             </div>
         </section>
