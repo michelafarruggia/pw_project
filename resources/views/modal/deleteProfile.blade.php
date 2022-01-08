@@ -9,6 +9,7 @@
                 <div class="form-group">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
                 </div>
+                
                 <div class="form-group">
                 <form action="{{ route('deleteProfile') }}" method="POST">
                     @csrf
