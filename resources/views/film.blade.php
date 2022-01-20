@@ -37,6 +37,7 @@
   </div>
 </div>
 
+
 <div class="container">
   <div style="float: left; margin-right: 0px">
     <img src="{{ url('/') }}/img/film/{{ $film->locandina }}" alt="{{ $film->titolo }}" class="img-thumbnail img-responsive" />
@@ -115,7 +116,7 @@
   </p>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top: 45px">
   <h3>Recensioni degli utenti </h3>
   <hr>
   @foreach($reviews as $review)
@@ -147,11 +148,6 @@
     {{$reviews->links()}}
   </span>
 </div>
-</div>
-
-</div>
-</div>
-
 
 
 @endsection
